@@ -1,0 +1,47 @@
+package com.pahana.web;
+
+import java.io.IOException;
+import com.pahana.db.UserDAO;
+import com.pahana.model.User;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    private UserDAO userDAO;
+
+    public void init() {
+        userDAO = new UserDAO();
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String user = request.getParameter("username");
+        String pass = request.getParameter("password");
+        
+        User authenticatedUser = userDAO.authenticateUser(user, pass);
+        
+        if (authenticatedUser != null) {
+            // Login successful
+            // 1. Create a session
+            HttpSession session = request.getSession();
+            // 2. Store user information in the session
+            session.setAttribute("user", authenticatedUser);
+            // 3. Redirect to the main dashboard (for now, our item list)
+            response.sendRedirect("dashboard.jsp");
+        } else {
+            // Login failed
+            request.setAttribute("errorMessage", "Invalid username or password.");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
+    }
+    
+    // Also handle GET requests to show the login page
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	request.getRequestDispatcher("login.jsp").forward(request, response);
+    }
+}
