@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.mindrot.jbcrypt.BCrypt;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -23,15 +24,16 @@ public class LoginServlet extends HttpServlet {
         String user = request.getParameter("username");
         String pass = request.getParameter("password");
         
-        User authenticatedUser = userDAO.authenticateUser(user, pass);
+        User userFromDB = userDAO.getUserByUsername(user);
         
-        if (authenticatedUser != null) {
+      
+        if (userFromDB != null && BCrypt.checkpw(pass, userFromDB.getPasswordHash())) {
             // Login successful
             // 1. Create a session
             HttpSession session = request.getSession();
             // 2. Store user information in the session
-            session.setAttribute("user", authenticatedUser);
-            // 3. Redirect to the main dashboard (for now, our item list)
+            session.setAttribute("user", userFromDB);
+            // 3. Redirect to the main dashboard (for now,  item list)
             response.sendRedirect("dashboard.jsp");
         } else {
             // Login failed

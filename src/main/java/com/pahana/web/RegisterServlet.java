@@ -1,13 +1,16 @@
 package com.pahana.web;
 
 import java.io.IOException;
+
 import com.pahana.db.UserDAO;
 import com.pahana.model.User;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse; 
+import org.mindrot.jbcrypt.BCrypt; 
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
@@ -17,17 +20,25 @@ public class RegisterServlet extends HttpServlet {
     public void init() {
         userDAO = new UserDAO();
     }
-
-    // Show the registration form
+    
+    
+ // Show the registration form
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("register.jsp").forward(request, response);
     }
 
     // Process the form submission
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String plainPassword = request.getParameter("password");
+        String username = request.getParameter("username");
+
+        // 2. Hash the password using BCrypt
+        // The gensalt() method automatically handles creating a secure, random salt
+        String hashedPassword = BCrypt.hashpw(plainPassword, BCrypt.gensalt());
+
         User newUser = new User();
-        newUser.setUsername(request.getParameter("username"));
-        newUser.setPasswordHash(request.getParameter("password")); // WARNING: Storing plain text!
+        newUser.setUsername(username);
+        newUser.setPasswordHash(hashedPassword); // Store the HASHED password
         newUser.setRole(request.getParameter("role"));
         
         boolean isRegistered = userDAO.registerUser(newUser);

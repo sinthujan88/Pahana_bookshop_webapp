@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Customer Information</title>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
 
 <%-- Reusing the same styles from our other pages for consistency --%>
 <style>
@@ -83,5 +84,8 @@
             </div>
         </form>
     </div>
+    
+    <jsp:include page="footer.jsp" />
+    
 </body>
 </html>

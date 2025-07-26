@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Create New Bill</title>
 <link rel="stylesheet" href="styles/form-styles.css">
+<link rel="stylesheet" type="text/css" href="styles/main.css">
 <style>
     .billing-layout { display: flex; gap: 2rem; }
     .billing-form { flex: 1; }
@@ -95,5 +96,8 @@
             <% } %>
         </div>
     </div>
+    
+    <jsp:include page="footer.jsp" />
+    
 </body>
 </html>

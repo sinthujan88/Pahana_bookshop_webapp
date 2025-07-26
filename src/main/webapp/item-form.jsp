@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Item Information</title>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
 <%-- Using the same styles as the customer form for consistency --%>
 <link rel="stylesheet" href="styles/form-styles.css"> <%-- We'll create this soon --%>
 </head>
@@ -54,8 +55,8 @@
             
             <div class="form-group">
                 <label for="stockQuantity">Stock Quantity</label>
-                <input type="number" id="stockQuantity" name="stockQuantity" 
-                       value="<%= isEditMode ? String.valueOf(item.getStockQuantity()) : "0" %>" required>
+                <input type="number" id="stockQuantity" name="stockQuantity" min="0"
+                  value="<%= isEditMode ? String.valueOf(item.getStockQuantity()) : "0" %>" required>
             </div>
             
             <div class="form-actions">
@@ -63,5 +64,7 @@
             </div>
         </form>
     </div>
+    
+    <jsp:include page="footer.jsp" />
 </body>
 </html>

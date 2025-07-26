@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Select Customer for Report</title>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
 <link rel="stylesheet" href="styles/form-styles.css">
 </head>
 <body>
@@ -33,5 +34,7 @@
             </div>
         </form>
     </div>
+    
+    <jsp:include page="footer.jsp" />
 </body>
 </html>

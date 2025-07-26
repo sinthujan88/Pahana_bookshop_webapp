@@ -1,0 +1,50 @@
+/* Sticky footer layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1; /* Grow and fill the space */
+}
+
+/* Flash success box */
+.flash-success {
+    padding: 1rem;
+    margin: 1rem 2rem;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Footer styles */
+.footer {
+    width: 100%;
+    background-color: #343a40; /* Dark background like the header */
+    color: #adb5bd;            /* Light grey text for readability */
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    margin-top: auto;          /* Pushes footer to bottom when content is short */
+}
+
+.footer-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;               /* White color for the name */
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;       /* Spacing between letters like the example */
+}
+
+.footer p {
+    margin: 0.25rem 0;
+}

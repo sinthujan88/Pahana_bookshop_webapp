@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Pahana Edu - Register User</title>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
 <style>
     /* Using the same styles as the login page for consistency */
     body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; }
@@ -35,5 +36,7 @@
         </form>
         <p style="text-align:center; margin-top:1rem;"><a href="login">Back to Login</a></p>
     </div>
+    
+    <jsp:include page="footer.jsp" />
 </body>
 </html>

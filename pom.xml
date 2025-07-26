@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.pahana</groupId>
+    <artifactId>PahanaEduWebApp</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <properties>
+        <!-- Defining properties is a best practice -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source> <!-- Set Java version to 17 -->
+        <maven.compiler.target>17</maven.compiler.target> <!-- Set Java version to 17 -->
+    </properties>
+
+   <dependencies>
+    <!-- 1. For Servlets, JSPs, etc. -->
+    <dependency>
+        <groupId>jakarta.platform</groupId>
+        <artifactId>jakarta.jakartaee-api</artifactId>
+        <version>9.1.0</version>
+        <scope>provided</scope>
+    </dependency>
+
+    <!-- 2. For Microsoft SQL Server Connection -->
+    <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>12.6.1.jre11</version>
+    </dependency>
+    
+    <!-- 3. For Secure Password Hashing -->
+    <dependency>
+        <groupId>org.mindrot</groupId>
+        <artifactId>jbcrypt</artifactId>
+        <version>0.4</version>
+    </dependency>
+
+    <!-- 4. For PDF Generation -->
+    <dependency>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>itext7-core</artifactId>
+        <version>8.0.4</version>
+        <type>pom</type>
+    </dependency>
+
+</dependencies>
+
+    <build>
+        <plugins>
+            <!-- This plugin compiles your Java code -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <!-- Configuration is now handled by properties above -->
+            </plugin>
+            
+            <!-- This plugin packages your project into a .war file -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>

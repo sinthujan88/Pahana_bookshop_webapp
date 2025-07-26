@@ -7,7 +7,7 @@
         String username = (user != null) ? user.getUsername() : "Guest";
     %>
     <div class="header-left">
-        <a href="dashboard.jsp" style="font-size: 1.2rem; font-weight: bold;">Pahana Dashboard</a>
+        <a href="dashboard.jsp" style="font-size: 1.2rem; font-weight: bold;">Pahana Edu</a>
     </div>
     <div class="header-right">
         <span>Welcome, <%= username %>!</span>

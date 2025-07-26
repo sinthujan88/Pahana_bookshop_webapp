@@ -5,9 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Manage Items</title>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
 <%-- Using the same styles as the customer list for consistency --%>
 <link rel="stylesheet" href="styles/list-styles.css"> <%-- We'll create this soon --%>
 </head>
+
+
 <body>
 
     <jsp:include page="header.jsp" />
@@ -51,6 +54,6 @@
             </tbody>
         </table>
     </div>
-
+<jsp:include page="footer.jsp" />
 </body>
 </html>

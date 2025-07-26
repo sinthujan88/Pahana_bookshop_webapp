@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import com.pahana.model.User;
+import java.sql.SQLException;
 
 public class UserDAO {
 	
@@ -34,36 +35,28 @@ public class UserDAO {
     }
 	
     
-    /**
-     * Authenticates a user.
-     * @param username The user's username.
-     * @param password The user's plain text password.
-     * @return A User object if authentication is successful, null otherwise.
-     */
-    public User authenticateUser(String username, String password) {
+   
+    public User getUserByUsername(String username) {
         User user = null;
-        // IMPORTANT: In a real system, you would compare a HASH of the password, not plain text.
-        // For this assignment, a direct comparison is acceptable if mentioned in your report.
-        String sql = "SELECT * FROM Users WHERE username = ? AND password_hash = ?";
+        String sql = "SELECT * FROM Users WHERE username = ?";
         
         try (Connection conn = DatabaseManager.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             
             pstmt.setString(1, username);
-            pstmt.setString(2, password);
             
-            ResultSet rs = pstmt.executeQuery();
-            
-            if (rs.next()) {
-                user = new User();
-                user.setId(rs.getInt("id"));
-                user.setUsername(rs.getString("username"));
-                user.setRole(rs.getString("role"));
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    user = new User();
+                    user.setId(rs.getInt("id"));
+                    user.setUsername(rs.getString("username"));
+                    user.setPasswordHash(rs.getString("password_hash")); // We MUST retrieve the hash
+                    user.setRole(rs.getString("role"));
+                }
             }
-            
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        return user;
+        return user; // Will be null if no user was found
     }
 }

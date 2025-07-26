@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Manage Customers</title>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
 <%-- Reusing the styles from displayItems.jsp for a consistent look --%>
 <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; background-color: #f8f9fa; }
@@ -57,7 +58,13 @@
                 <% } %>
             </tbody>
         </table>
+        
+       
     </div>
-
+    
+    <jsp:include page="footer.jsp" />
+ 
 </body>
+   
+
 </html>

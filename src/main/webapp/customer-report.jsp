@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Customer Report</title>
 <link rel="stylesheet" href="styles/list-styles.css">
+<link rel="stylesheet" type="text/css" href="styles/main.css">
 <style>
     .customer-details { background: #e9ecef; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
     .customer-details h2 { margin-top: 0; }
@@ -61,5 +62,7 @@
             </tbody>
         </table>
     </div>
+    
+    <jsp:include page="footer.jsp" />
 </body>
 </html>

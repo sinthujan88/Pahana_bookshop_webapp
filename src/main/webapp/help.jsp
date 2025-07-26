@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <title>System Help</title>
 <link rel="stylesheet" href="styles/form-styles.css"> <%-- Reusing form styles for the container --%>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 <body>
     <jsp:include page="header.jsp" />
@@ -36,5 +37,8 @@
         <h3>Logout</h3>
         <p>Click the "Logout" button in the top-right corner at any time to securely exit the system and return to the login screen.</p>
     </div>
+    
+     <jsp:include page="footer.jsp" />
+   
 </body>
 </html>

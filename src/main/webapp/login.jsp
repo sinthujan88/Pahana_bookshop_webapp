@@ -4,15 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Pahana Edu - Login</title>
-<style>
-    /* Add some basic styling for the login form */
-    body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; }
-    .login-container { padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 300px; }
-    .login-container h1 { text-align: center; margin-bottom: 1.5rem; }
-    .login-container input { width: 100%; padding: 10px; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
-    .login-container button { width: 100%; padding: 10px; border: none; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer; }
-    .error-message { color: red; text-align: center; margin-bottom: 1rem; }
-</style>
+<link rel="stylesheet" type="text/css" href="styles/login.css">
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+
+
+
 </head>
 
 <body>
@@ -38,6 +34,11 @@
      
         <p style="text-align:center; margin-top:1rem;"><a href="register">Register a new user</a></p>
    
+  
     </div>
+  
+   
+    
 </body>
+   <jsp:include page="footer.jsp" />
 </html>
