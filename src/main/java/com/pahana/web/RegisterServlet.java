@@ -32,7 +32,7 @@ public class RegisterServlet extends HttpServlet {
     	String plainPassword = request.getParameter("password");
         String username = request.getParameter("username");
 
-        // 2. Hash the password using BCrypt
+        // 2. Hash the password using BCrypt Library
         // The gensalt() method automatically handles creating a secure, random salt
         String hashedPassword = BCrypt.hashpw(plainPassword, BCrypt.gensalt());
 
