@@ -119,5 +119,4 @@ The project follows a standard layered architecture pattern to separate concerns
 ---
 
 ## Author
-
--   **Sinthujan**
+**S.Sinthujan**
