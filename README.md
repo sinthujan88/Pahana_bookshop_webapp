@@ -1,7 +1,9 @@
 # Pahana Edu - Bookstore Billing System
 
 PahanaEduWebApp is a comprehensive, web-based billing and inventory management system designed for the "Pahana Edu" bookstore. It replaces manual processes with an efficient, secure, and user-friendly Java application.
-
+---
+## Pahana Edu System Video Demonstration
+https://drive.google.com/drive/folders/1e2icZcPfxOHAHcE0Jc2lu2MeG4t8lHuM?usp=sharing
 ---
 
 ## Table of Contents
